@@ -86,9 +86,7 @@ else
     echo "1 is not equals 1"
 fi
 ```
--  compare numerical value
 
-```
 ### compare numerical value:
 - -eq 等于
 - -ge 大于等于
@@ -117,3 +115,55 @@ fi
 - -G file 检查file是否存在并且默认组与当前用户相同
 - file1 -nt file2 检查file1是否别file2新
 - file2 -ot file2 检查file1 是否比file2旧
+
+### if-then advanced peculiarity
+
+#### 逻辑与  [commond1] && [ commond2 ]
+```shell
+if [ -s "file.txt" ] && [ -w "file.txt" ]; then
+        echo "file.txt is exists and i can write it"
+else
+        echo "i don't known"
+fi
+```
+
+#### 逻辑或 [ commond1 ] || [ commond2 ]
+```shell
+if [ -s "file1.txt" ] || [ -s "file2.txt" ]; then
+        echo "file is exists"
+else
+        echo "i don't known"
+fi
+```
+### if-then  advanced arithmetical operation
+
+#### if-then 高级特性：双括号内高级数学表达式 (( expression ))
+- var++ 后增
+- var-- 后减
+- ++var 先增
+- --var 先减
+- !     逻辑求反
+- ~             位求反
+- **    幂运算
+- <<    左位移
+- \>>    右位移
+- &             与运算
+- |             或运算
+- &&    逻辑与
+- ||    逻辑或
+```shell
+int1=10
+if  (( $int1 ** 2 > 90 )); then
+        (( int2 = $int1 ** 2 ))
+        echo "The squqre of $int1 is $int2"
+fi
+```
+#### if-ten 高级特性：双中括号字符串比较高级特性 [[ expression ]]
+- 双方括号里的expression使用了test命令中采用的标准字符串进行比较，但是它提供了test命令未提供的另一个特性——模式匹配（pattern matching）
+
+- 在模式匹配中你可以定义一个正则表达式来匹配字符串值
+```shell
+if [[ $USER == r* ]]; then
+        echo "Hell $USER"
+fi
+```
