@@ -101,7 +101,57 @@ fi
 - != 不等于
 - < 小于
 - \> 大于
-- -n 检查字符串长度是否为0(未定义的字符串也为0)
+- -n 检查字符串长度是否不为0(未定义的字符串也为0)
+- -z 检查字符串长度是否为0
+```shell
+#!/bin/bash
+var=""
+if [ -z $var ]; then
+        echo "var is empty"
+fi
+if [ -n $var ]; then
+        echo "var is not empty"
+fi
+echo "=================="
+if [ -z "$var" ]; then
+        echo "var is empty"
+fi
+if [ -n "$var" ]; then
+        echo "var is not empty"
+fi
+#条件测试[ -n ]相当于test -n，bash的内建命令test在只有一个参数的情况下，只要参数不为空就返回真。
+if test -n
+then
+        echo "true"
+fi
+echo "-----------------"
+if test -n ""
+then
+        echo "true"
+else
+        echo "false"
+fi
+```
+
+  ```
+  [root@zhongkuo shell]# sh nz.sh
+  var is empty
+  var is not empty
+  ==================
+  var is empty
+  true
+  -----------------
+  false
+  [root@zhongkuo shell]# vim nz.sh
+  [root@zhongkuo shell]# sh nz.sh
+  var is empty
+  var is not empty
+  ==================
+  var is empty
+  true
+  -----------------
+  false
+  ````
 
 ###  compare files
 - -d file 检查file是否存在并是一个目录
@@ -166,4 +216,61 @@ fi
 if [[ $USER == r* ]]; then
         echo "Hell $USER"
 fi
+```
+
+### replace the if-then with case-in
+
+#### e.g.
+
+```shell
+#!/bin/bash
+# convert if-then to case in
+
+var=$1
+if [ -z "$var" ]; then
+        echo "your param is empty"
+fi
+
+if [ -n "$var" ]; then
+        echo "your param is $var"
+fi
+
+echo "====if-then===="
+if [ "$var" = "a" ]; then
+        echo "it's upercase is A"
+elif [ "$var" = "b" ]; then
+        echo "it's upercase is B"
+elif [ "$var" = "c" ]; then
+        echo "it's upercase is C"
+else
+        echo "but the param is required to be a or b or c"
+fi
+
+echo "====case-in===="
+# case in
+case "$var" in
+"a")
+        echo "it's upercase is A";;
+"b")
+        echo "it's upercase is B";;
+"c")
+        echo "it's upercase is C";;
+*)
+        echo "but the param is required to be a or b or c";;
+esac
+```
+```console
+[root@zhongkuo shell]# sh case.sh a
+your param is a
+====if-then====
+it's upercase is A
+====case-in====
+it's upercase is A
+
+[root@zhongkuo shell]# sh case.sh
+your param is empty
+====if-then====
+but the param is required to be a or b or c
+====case-in====
+but the param is required to be a or b or c
 ```
