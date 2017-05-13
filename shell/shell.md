@@ -1,4 +1,4 @@
-## Let's learn the shell
+## Let's learn the bash shell
 ### echo and exit status
 
 - hello world
