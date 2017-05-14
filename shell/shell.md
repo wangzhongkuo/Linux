@@ -274,3 +274,114 @@ but the param is required to be a or b or c
 ====case-in====
 but the param is required to be a or b or c
 ```
+
+## looping
+
+### for-in
+```shell
+for var in list
+do
+    commond
+done
+```
+```shell
+#!/bin/bash
+# testing then for variable after the looping
+
+# for var in list
+# do
+#       commond
+# done
+
+for var in a b c d
+do
+        echo "The next state is $var"
+done
+echo "=========================="
+
+for var in i don't know if this'll work
+do
+        echo "The next state is $var"
+done
+echo "=========================="
+
+for var in "i don't know if this'll work"
+do
+        echo "The next state is $var"
+done
+echo "=========================="
+
+for var in i "don't" know if "this'll" work
+do
+        echo "The next state is $var"
+done
+echo "========================="
+
+list="a b c d e"
+list=$list" f"
+
+for var in $list
+do
+        echo "The next state is $var"
+done
+```
+```console
+$ sh for.sh
+The next state is a
+The next state is b
+The next state is c
+The next state is d
+==========================
+The next state is i
+The next state is dont know if thisll
+The next state is work
+==========================
+The next state is i don't know if this'll work
+==========================
+The next state is i
+The next state is don't
+The next state is know
+The next state is if
+The next state is this'll
+The next state is work
+=========================
+The next state is a
+The next state is b
+The next state is c
+The next state is d
+The next state is e
+The next state is f
+```
+### for-in like C
+```shell
+#!/bin/bash
+# another pattern of for-in from C
+
+for (( i=1; i<10; i++ ))
+do
+        echo "i is $i"
+done
+echo "==================="
+
+for (( i=1,j=10; i<6,j>5; i++,j-- )); do
+        echo "i is $i, j is $j"
+done
+```
+```console
+$ sh for3.sh
+i is 1
+i is 2
+i is 3
+i is 4
+i is 5
+i is 6
+i is 7
+i is 8
+i is 9
+===================
+i is 1, j is 10
+i is 2, j is 9
+i is 3, j is 8
+i is 4, j is 7
+i is 5, j is 6
+```
