@@ -9,3 +9,5 @@ x X
 i I
 o O
 n N
+u U
+t T
