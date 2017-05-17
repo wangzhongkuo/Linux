@@ -7,3 +7,4 @@ g G
 f F
 x X
 i I
+o O
