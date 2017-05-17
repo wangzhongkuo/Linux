@@ -8,3 +8,4 @@ f F
 x X
 i I
 o O
+n N
