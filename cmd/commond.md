@@ -28,14 +28,6 @@
 
 ![top.png](https://raw.githubusercontent.com/wangzhongkuo/Linux/master/imgs/top.png)
 
-```
-top - 17:09:35 up 420 days,  5:39,  3 users,  load average: 62.41, 59.50, 43.38
-Tasks: 158 total,   2 running, 156 sleeping,   0 stopped,   0 zombie
-Cpu0  : 96.3%us,  3.7%sy,  0.0%ni,  0.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
-Cpu1  : 97.0%us,  3.0%sy,  0.0%ni,  0.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
-Mem:   7662648k total,  7527224k used,   135424k free,     4232k buffers
-Swap:        0k total,        0k used,        0k free,  3675340k cached
-```
 - top - 17:09:35[当前系统时间]
 - up 420 days,  5:39[系统运行时间]
 - 3 users[当前登录用户]
