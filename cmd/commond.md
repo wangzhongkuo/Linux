@@ -26,7 +26,7 @@
 
 ### 示例：top
 
-![top.png](Linux/imgs/top.png)
+![top.png](https://raw.githubusercontent.com/wangzhongkuo/Linux/master/imgs/top.png)
 
 ```
 top - 17:09:35 up 420 days,  5:39,  3 users,  load average: 62.41, 59.50, 43.38
