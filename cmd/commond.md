@@ -31,7 +31,7 @@
 - top - 17:09:35[当前系统时间]
 - up 420 days,  5:39[系统运行时间]
 - 3 users[当前登录用户]
-- load average: 62.41, 59.50, 43.38[系统负载，即任务队列的平均长度。三个数值分别为 1分钟、5分钟、15分钟前到现在的平均值]
+- load average: 62.41, 59.50, 43.38[系统负载，即任务队列的平均长度。三个数值分别为 1分钟、5分钟、15分钟前到现在的平均值][load average](http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages "load average")
 - Tasks: 158 total[进程总数]
 - 2 running[正在运行进程数]
 - 156 sleeping[睡眠进程数]
