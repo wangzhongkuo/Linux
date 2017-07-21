@@ -66,8 +66,8 @@ Swap:        0k total,        0k used,        0k free,  3675340k cached
 ### 进程信息
 序号|  列名     |含义
 ----- | ------ | ---
-|a    |PID |   |进程id|
-|b    |PPID|   |父进程id|
+|a    |PID     |进程id|
+|b    |PPID    |父进程id|
 |c    |RUSER   |Real user name|
 |d    |UID     |进程所有者的用户id|
 |e    |USER    |进程所有者的用户名|
