@@ -25,6 +25,9 @@
 - top -d 2 -c -p 123456 //每隔2秒显示pid是12345的进程的资源使用情况，并显式该进程启动的命令行参数
 
 ### 示例：top
+
+![top.png](Linux/imgs/top.png)
+
 ```
 top - 17:09:35 up 420 days,  5:39,  3 users,  load average: 62.41, 59.50, 43.38
 Tasks: 158 total,   2 running, 156 sleeping,   0 stopped,   0 zombie
