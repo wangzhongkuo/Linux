@@ -95,7 +95,7 @@ fi
 - -lt 小于
 - -ne 不等
 ###  compare varchar value
-- warning: there are spaces in front and at the back of the =
+- warning: there are spaces in around the =
 - warning: you must escape the > with \, e.g. \>
 - = 等于
 - != 不等于
@@ -385,3 +385,4 @@ i is 3, j is 8
 i is 4, j is 7
 i is 5, j is 6
 ```
+
