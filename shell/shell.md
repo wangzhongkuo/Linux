@@ -385,7 +385,6 @@ i is 3, j is 8
 i is 4, j is 7
 i is 5, j is 6
 ```
-<<<<<<< HEAD
 ### while loop
 
 ```shell
@@ -561,5 +560,4 @@ b
 c
 d
 ```
-=======
 
