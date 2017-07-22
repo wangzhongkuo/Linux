@@ -95,7 +95,7 @@ fi
 - -lt 小于
 - -ne 不等
 ###  compare varchar value
-- warning: there are spaces in front and at the back of the =
+- warning: there are spaces in around the =
 - warning: you must escape the > with \, e.g. \>
 - = 等于
 - != 不等于
@@ -384,4 +384,179 @@ i is 2, j is 9
 i is 3, j is 8
 i is 4, j is 7
 i is 5, j is 6
+```
+### while loop
+
+```shell
+while test commond
+do
+  other commond
+done
+```
+```shell
+#/bin/bash
+# while commond test
+count=10
+while [ $count -gt 0 ]
+do
+        echo "$count"
+        count=$[ $count -1 ]
+done
+#双圆括号
+count=10
+while (($count > 0))
+do
+        echo "$count"
+        count=$[ $count -1 ]
+done
+#双尖括号
+count=10
+while [[ $count -gt 0 ]]
+do
+        echo "$count"
+        count=$[$count-1]
+done
+#多个测试命令
+count=10
+while echo $count
+          [ $count -ge 0 ]
+do
+        echo "this is inside the loop"
+        count=$[ $count - 1 ]
+done
+```
+### until loop
+
+```shell
+until test commond
+do
+  other commond
+done
+```
+```shell
+#/bin/bash
+# using the until commod
+count=100
+until [ $count -eq 0 ]
+do
+        echo "$count"
+        count=$[$count - 25]
+done
+```
+```console
+$ sh until.sh
+100
+75
+50
+25
+```
+
+### control loop with continue n, break n
+
+```shell
+for (( i=1; i<=2; i++))
+do
+        echo "inner begin ..."
+        for (( j=6; j>=0; j-- ))
+        do
+                value=$(( j % 2 ))
+                if [ $value -eq 0 ]; then
+                        echo "i=$i, j=$j discard following clauses"
+                        continue
+                else
+                        echo "i=$i, j=$j"
+                fi
+                echo "last inner clause"
+        done
+        echo "inner end ..."
+        echo ""
+done
+```
+```console
+inner begin ...
+i=1, j=6 discard following clauses
+i=1, j=5
+last inner clause
+i=1, j=4 discard following clauses
+i=1, j=3
+last inner clause
+i=1, j=2 discard following clauses
+i=1, j=1
+last inner clause
+i=1, j=0 discard following clauses
+inner end ...
+
+inner begin ...
+i=2, j=6 discard following clauses
+i=2, j=5
+last inner clause
+i=2, j=4 discard following clauses
+i=2, j=3
+last inner clause
+i=2, j=2 discard following clauses
+i=2, j=1
+last inner clause
+i=2, j=0 discard following clauses
+inner end ...
+```
+
+```shell
+echo "if no break, will echo 5*5 square, but 3*3"
+for outv in 1 2 3 4 5
+do
+        for innv in 1 2 3 4 5
+        do
+                if [ $outv -eq 4 ]; then
+                        break 2
+                fi
+                echo -n " $innv "
+                if [ $innv -eq 3 ]; then
+                        break
+                fi
+        done
+        echo ""
+done
+```
+```console
+if no break, will echo 5*5 square, but 3*3
+ 1  2  3
+ 1  2  3
+ 1  2  3
+```
+
+### behind the done
+
+```shell
+# behind the done
+echo "behind the done"
+echo ""
+echo "done > done.txt"
+for var in a b c d
+do
+        echo "$var"
+done > done.txt
+echo ""
+echo "done | sort"
+for var in a d b c
+do
+        echo "$var"
+done | sort
+echo "cat done.txt"
+cat done.txt
+```
+```console
+behind the done
+
+done > done.txt
+
+done | sort
+a
+b
+c
+d
+cat done.txt
+a
+b
+c
+d
 ```
